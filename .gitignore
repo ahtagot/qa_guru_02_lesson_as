@@ -8,6 +8,9 @@ build/
 *.iml
 *.ipr
 
+### Gradle ###
 .gradle
+**/build/
+!src/**/build/
 
 *.log
