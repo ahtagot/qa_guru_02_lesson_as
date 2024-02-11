@@ -12,5 +12,5 @@ build/
 .gradle
 **/build/
 !src/**/build/
-
+src/test/java/PracticeFormTests.java
 *.log
