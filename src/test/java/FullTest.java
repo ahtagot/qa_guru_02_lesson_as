@@ -17,7 +17,7 @@ public class FullTest {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.timeout = 5000;
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = false;
         Configuration.pageLoadStrategy = "eager";
     }
 
@@ -43,7 +43,7 @@ public class FullTest {
         $(byText("1998")).click();
         $(".react-datepicker__day.react-datepicker__day--013").click();
         sleep(1000);
-        //String dateValue = $("#dateOfBirthInput").getValue();  expirementing with taking value from date field
+        //String dateValue = $("#dateOfBirthInput").getValue();  experimenting with taking value from date field
         //System.out.println("Name value: " + dateValue);
         $("#state").click();
         $(byText("NCR")).click();
