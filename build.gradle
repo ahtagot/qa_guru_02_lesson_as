@@ -7,6 +7,14 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    test {
+        resources {
+            srcDirs = ['src/test/resources']
+        }
+    }
+}
+
 dependencies {
     testImplementation(
             "org.junit.jupiter:junit-jupiter:5.10.0",
@@ -18,3 +26,4 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
