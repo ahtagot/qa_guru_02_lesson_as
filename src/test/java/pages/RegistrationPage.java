@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class RegistrationPage {
+public class RegistrationPage  {
     private final SelenideElement firstNameInput = $("#firstName");
     private final SelenideElement lastNameInput = $("#lastName");
     private final SelenideElement userEmailInput = $("#userEmail");
@@ -24,8 +24,7 @@ public class RegistrationPage {
     private final SelenideElement dropListState = $("#state");
     private final SelenideElement dropListCity = $("#city");
     private final SelenideElement submitButton = $("#submit");
-    private final SelenideElement checkResult = $(".table-responsive");
-    private final SelenideElement checkResultNegative = $("[class]");
+    private final SelenideElement checkResultNegative = $(".table-responsive");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     CheckResultComponent checkResultComponent = new CheckResultComponent();
@@ -33,25 +32,21 @@ public class RegistrationPage {
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-
         return this;
     }
 
     public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
-
         return this;
     }
 
     public RegistrationPage setLastName(String value) {
         lastNameInput.setValue(value);
-
         return this;
     }
 
     public RegistrationPage setUserEmail(String value) {
         userEmailInput.setValue(value);
-
         return this;
     }
 
@@ -104,7 +99,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage clickSubmitButton() {
+ public RegistrationPage clickSubmitButton() {
         submitButton.click();
         return this;
 
@@ -117,7 +112,7 @@ public class RegistrationPage {
     }
 
     public void checkResultTableIsNotVisible() {
-        checkResult.shouldNotBe(visible);
+        checkResultNegative.shouldNotBe(visible);
 
     }
 
