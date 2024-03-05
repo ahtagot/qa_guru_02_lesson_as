@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.CheckResultComponent;
+import tests.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -10,10 +11,10 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class RegistrationPage  {
-    private final SelenideElement firstNameInput = $("#firstName");
-    private final SelenideElement lastNameInput = $("#lastName");
-    private final SelenideElement userEmailInput = $("#userEmail");
+public class RegistrationPage extends TestBase {
+    private final SelenideElement firstNameInput = $("#firstName"); //
+    private final SelenideElement lastNameInput = $("#lastName");  //
+    private final SelenideElement userEmailInput = $("#userEmail");  //
     private final SelenideElement userGenderWrapper = $("#genterWrapper");
     private final SelenideElement userPhoneNumberInput = $("#userNumber");
     private final SelenideElement calendarInput = $("#dateOfBirthInput");
@@ -77,13 +78,13 @@ public class RegistrationPage  {
         return this;
     }
 
-    public RegistrationPage setHobbies(String value) {
-        hobbiesWrapper.$(byText(value)).click();
+    public RegistrationPage setHobbies(String hobbies) {
+        hobbiesWrapper.$(byText(hobbies)).click();
         return this;
     }
 
-    public RegistrationPage uploadPicture(String pictureName) {
-        pictureUploader.uploadFromClasspath(pictureName);
+    public RegistrationPage uploadPicture(String picture) {
+        pictureUploader.uploadFromClasspath(picture);
         return this;
     }
 
