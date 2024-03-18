@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static tests.Timezones.UsTimezones;
+
 
 
 public class JUnitTests {
@@ -55,12 +55,13 @@ public class JUnitTests {
     }
 
 
-    @EnumSource(UsTimezones.class)
+    @EnumSource(Timezone.class)
     @DisplayName("Check Tv Schedule is not empty for each timezone ")
     @ParameterizedTest(name = "Check Tv Schedule is not empty for each timezone {0}")
-    void checkTvScheduleNotEmptyForEachTimezone(UsTimezones timeZone) {
+    void checkTvScheduleNotEmptyForEachTimezone(Timezone timeZone) {
         open("shows/tv-schedule");
-        $(".m-TimeZone__a-Button").$(byText(String.valueOf(timeZone))).click();
+       // $(".m-TimeZone__a-Button").$(byText(String.valueOf(timeZone))).click();
+         $(".m-TimeZone__a-Button").$(byText(timeZone.getName())).click();
 
     }
 
