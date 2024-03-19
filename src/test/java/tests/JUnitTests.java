@@ -9,11 +9,10 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class JUnitTests {
@@ -60,8 +59,8 @@ public class JUnitTests {
     @ParameterizedTest(name = "Check Tv Schedule is not empty for each timezone {0}")
     void checkTvScheduleNotEmptyForEachTimezone(Timezone timeZone) {
         open("shows/tv-schedule");
-       // $(".m-TimeZone__a-Button").$(byText(String.valueOf(timeZone))).click();
-         $(".m-TimeZone__a-Button").$(byText(timeZone.getName())).click();
+        $(".m-TimeZone__a-Button").$(byText(timeZone.getName())).click();
+        $$(".o-ProgramSchedule__m-EpisodeCard.m-EpisodeCard.show-more").shouldBe(sizeGreaterThan(0));
 
     }
 
