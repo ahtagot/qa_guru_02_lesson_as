@@ -1,0 +1,9 @@
+{
+  "title": "Lord of the Rings",
+  "volume": ["One", "Two", "Three"],
+  "totalPages": 2000,
+  "storage": {
+    "aisle": "1",
+    "bin": "3"
+  }
+}
