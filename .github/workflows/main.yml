@@ -15,7 +15,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - uses: ahtagot/qa_guru_02_lesson_as@v2
+      - uses: ahtagot/qa_guru_02_lesson_as
       # запускаем тесты
       - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub
       # скачиваем историю тестов
