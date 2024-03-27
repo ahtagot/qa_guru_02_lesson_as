@@ -1,10 +1,14 @@
 package tests;
+import com.codeborne.selenide.logevents.SelenideLogger;
 
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
 import static data.TestData.*;
-
+@Tag("demoqa_run")
 public class RegistrationPageTests extends TestBase  {
 
     RegistrationPage registrationPage = new RegistrationPage();
@@ -24,9 +28,10 @@ public class RegistrationPageTests extends TestBase  {
     String pictureName = generateUserPicture();
     String state = generateState();
     String city = generateCity();
+
     @Test
     void registrationPageTestAllFieldsFilled() {
-
+        SelenideLogger.addListener("allure", new AllureSelenide());
 
         registrationPage.openPage()
                 .setFirstName(firstName)
@@ -59,7 +64,7 @@ public class RegistrationPageTests extends TestBase  {
 
     @Test
     void registrationPageTestRequiredFieldsOnly() {
-
+        SelenideLogger.addListener("allure", new AllureSelenide());
         registrationPage.openPage()
                 .setFirstName(firstName)
                 .setLastName(lastName)
@@ -77,6 +82,7 @@ public class RegistrationPageTests extends TestBase  {
 
     @Test
     void registrationPageNegativeTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         registrationPage.openPage()
                 .setFirstName("")
                 .setLastName(lastName)
