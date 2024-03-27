@@ -4,6 +4,9 @@ plugins {
     id 'io.qameta.allure' version '2.11.2'
 }
 
+def allureVersion = "2.26.0",
+    selenideVersion = "7.2.1"
+
 allure {
     report {
         version.set("2.25.0")
@@ -40,17 +43,34 @@ dependencies {
     )
 
     testImplementation(
-            "org.junit.jupiter:junit-jupiter:5.10.2",
-            "com.codeborne:selenide:7.2.1",
-            "org.slf4j:slf4j-simple:2.0.7",
-            "com.github.javafaker:javafaker:1.0.2",
+            'org.junit.jupiter:junit-jupiter:5.10.2',
+            "com.codeborne:selenide:$selenideVersion",
+            'org.slf4j:slf4j-simple:2.0.7',
+            'com.github.javafaker:javafaker:1.0.2',
             'commons-io:commons-io:2.15.0',
             'com.codeborne:pdf-test:1.5.0',
             'com.codeborne:xls-test:1.4.3',
             'com.opencsv:opencsv:5.9',
-            'io.qameta.allure:allure-selenide:2.26.0'
+            "io.qameta.allure:allure-selenide:$allureVersion"
 
     )
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+task demoqa_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("demoqa_run")
+    }
 }
 
 dependencies {
