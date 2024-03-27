@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
 import static data.TestData.*;
-@Tag("demoqa")
+@Tag("demoqa-run")
 public class RegistrationPageTests extends TestBase  {
 
     RegistrationPage registrationPage = new RegistrationPage();
