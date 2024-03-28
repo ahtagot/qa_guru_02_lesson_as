@@ -73,10 +73,16 @@ task demoqa_run(type: Test) {
     }
 }
 
-dependencies {
-}
+    task smoke_test(type: Test) {
+        useJUnitPlatform {
+            includeTags("smoke_test")
+        }
+    }
 
-test {
-    useJUnitPlatform()
-}
+    dependencies {
+    }
+
+    test {
+        useJUnitPlatform()
+    }
 
